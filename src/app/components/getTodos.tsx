@@ -3,14 +3,18 @@ import Todo from "@/lib/Model";
 import React from "react";
 
 export default async function GetTodosUI() {
-  try {
-    const todos = await Todo.find();
-    if (todos.length === 0) {
-      return <h1>No todos</h1>;
-    } else {
+  const data = await (
+    await fetch(`api/todo`, {
+      cache: "no-store",
+    })
+  ).json();
+  if (data === null) {
+    return
+  }
+ 
       return (
         <div>
-          {todos.map((todo: any) => (
+          {data.map((todo: any) => (
             <div key={todo._id}>
               <h3>{todo.todo as string}</h3>
               <p>{todo.todoDeadline as number}</p>
