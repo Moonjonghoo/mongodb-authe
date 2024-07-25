@@ -34,6 +34,6 @@ const todoSchema = new mongoose.Schema<ITodoDocument>(
 );
 
 // Creating a mongoose model for the todo document
-const Todo: Model<ITodoDocument> = mongoose.models?.Todo || mongoose.model("Todo", todoSchema);
+const Todo = mongoose.models?.Todo || mongoose.model("Todo", todoSchema);
 
 export default Todo;
