@@ -2,6 +2,8 @@
 import Todo from "@/lib/Model";
 import React from "react";
 
+export const dynamic = "force-dynamic";
+
 export default async function GetTodosUI() {
   const data = await (
     await fetch(`${process.env.DEPOLY_URL}/api/todo`, {
