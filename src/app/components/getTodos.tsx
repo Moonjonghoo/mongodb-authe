@@ -4,7 +4,7 @@ import React from "react";
 
 export default async function GetTodosUI() {
   const data = await (
-    await fetch(`api/todo`, {
+    await fetch(`${process.env.DEPOLY_URL}/api/todo`, {
       cache: "no-store",
     })
   ).json();
